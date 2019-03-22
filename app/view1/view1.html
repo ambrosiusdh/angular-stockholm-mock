@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 90%;
+            margin: auto;
+        }
+
+        .number{
+
+        }
+
+        .number::after{
+            clear: both;
+            display: block;
+            content: '';
+        }
+
+        .number__target{
+            float: left;
+            width: 40%;
+            text-align: center;
+        }
+
+        .number__operator{
+            float:left;
+            width: 20%;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .number__target input{
+            width: 10%;
+            background-color: transparent;
+            border: none;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .number__target-button, .number__result-reset-button{
+            background-color: orange;
+            border: none;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 20px;
+        }
+
+        .number__target-button:hover, .number__result-reset-button:hover{
+            background-color: darkorange;
+        }
+
+        .number__result-reset-button{
+            width: 20%;
+        }
+
+        .number__result{
+            text-align: center;
+            font-size: 54px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" ng-app="myApp" ng-controller="View1Ctrl">
+        <div class="number">
+            <div class="number__target">
+                <input type="number" ng-model="firstNumber" disabled>
+                <br>
+                <button class="number__target-button" ng-click="increaseFirstNumber()">Increase number</button>
+            </div>
+            <div class="number__operator">
+                <div class="number__operator-item" ng-switch="operator">
+                    <span class="number__result-option-item" ng-switch-when="plus">
+                        +
+                    </span>
+                    <span class="number__result-option-item" ng-switch-when="minus">
+                        -
+                    </span>
+                    <span class="number__result-option-item" ng-switch-when="divide">
+                        /
+                    </span>
+                    <span class="number__result-option-item" ng-switch-when="times">
+                        *
+                    </span>
+                </div>
+                <div class="number__operator-item">
+                    <select name="operator" ng-model="operator">
+                        <option value="" selected></option>
+                        <option value="plus">+</option>
+                        <option value="minus">-</option>
+                        <option value="divide">/</option>
+                        <option value="times">*</option>
+                    </select>
+                </div>
+            </div>
+            <div class="number__target">
+                <input type="number" ng-model="secondNumber" disabled>
+                <br>
+                <button class="number__target-button" ng-click="increaseSecondNumber()">Increase number</button>
+            </div>
+        </div>
+
+        <hr>
+        <div class="number__result">
+            <div class="number__result-option" ng-switch="operator">
+                <div class="number__result-option-item" ng-switch-when="plus">
+                    {{firstNumber + secondNumber}}
+                </div>
+                <div class="number__result-option-item" ng-switch-when="minus">
+                    {{firstNumber - secondNumber}}
+                </div>
+                <div class="number__result-option-item" ng-switch-when="divide">
+                    {{firstNumber / secondNumber}}
+                </div>
+                <div class="number__result-option-item" ng-switch-when="times">
+                    {{firstNumber * secondNumber}}
+                </div>
+            </div>
+            <div class="number__result-reset">
+                <button class="number__result-reset-button" ng-click="">Reset the value</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

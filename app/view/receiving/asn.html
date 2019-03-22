@@ -1,0 +1,89 @@
+<div class="table-template asn" ng-controller="asnCtrl">
+    <div class="table-template__head">
+        <div class="table-template__head-title">
+            Advanced Shipping Notes
+        </div>
+        <div class="table-template__head-date">
+            {{date | date: 'dd MMMM yyyy hh:mm a'}}
+        </div>
+    </div>
+    <div class="table-template__detail">
+        <div class="table-template__detail-date">
+            Tanggal Pembuatan
+            <input
+                    class="table-template__detail-date-input"
+                    type="text"
+                    name="dates"
+                    ng-model="dates" />
+            <span class="table-template__detail-date-icon">
+                <i class="fas fa-calendar-alt"></i>
+            </span>
+        </div>
+        <div class="table-template__detail-pagination" ng-init="paginationPage = [10,25,50]; pagination = paginationPage[0]">
+            <select ng-model="pagination" ng-options="p for p in paginationPage track by p">
+            </select>
+        </div>
+    </div>
+    <div class="table-template__content">
+        <table class="table-template__content-table table">
+            <thead>
+            <tr>
+                <th>ASN No.</th>
+                <th>Reff No.</th>
+                <th>Supplier</th>
+                <th>Inventory Type</th>
+                <th>Status</th>
+                <th>Loading Dock</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-template__content-table-search">
+                <td class="table-template__content-table-search-column">
+                    <input
+                        class="table-template__content-table-search-input"
+                        type="text"
+                        placeholder="Cari ASN">
+                </td>
+                <td class="table-template__content-table-search-column">
+                    <input
+                        class="table-template__content-table-search-input"
+                        type="text"
+                        placeholder="Cari Reff no.">
+                </td>
+                <td class="table-template__content-table-search-column"><input class="table-template__content-table-search-input" type="text" placeholder="Cari Supplier"></td>
+                <td class="table-template__content-table-search-column">
+                    <select
+                        class="table-template__content-table-search-input"
+                        name="asnInventoryType"
+                        ng-model="asnInventoryType">
+
+                    </select>
+                </td>
+                <td class="table-template__content-table-search-column">
+                    <select class="table-template__content-table-search-input" name="asnStatus" ng-model="asnStatus">
+                        <option value="all">Semua</option>
+                        <option value="created">Created</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr ng-repeat="d in dataset">
+                <td>{{d.asnNumber}}</td>
+                <td>{{d.asnReference}}</td>
+                <td>{{d.asnSupplier}}</td>
+                <td>{{d.asnType}}</td>
+                <td>{{d.asnStatus}}</td>
+                <td>{{d.asnDock}}</td>
+                <td>Detail</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $('input[name="dates"]').daterangepicker();
+</script>

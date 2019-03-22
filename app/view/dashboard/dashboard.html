@@ -1,0 +1,70 @@
+<div class="dashboard" ng-controller="dashboardCtrl">
+    <div class="dashboard__head">
+        <div class="dashboard__head-statistic">
+            <div class="dashboard__head-button-outbound">
+                <a href="" class="dashboard__head-statistic-outbound-link btn btn-success">Outbound</a>
+            </div>
+            <div class="dashboard__head-button-overall">
+                <a href="" class="dashboard__head-statistic-overall-link btn btn-primary">Overall</a>
+            </div>
+        </div>
+        <div class="dashboard__head-about">
+            <div class="dashboard__head-about-title">
+                Dashboard
+            </div>
+            <div class="dashboard__head-about-date">
+                {{date | date: 'dd MMMM yyyy hh:mm a'}}
+            </div>
+        </div>
+    </div>
+    <div class="dashboard__content inbound">
+        <div class="inbound__head">
+            Inbound
+        </div>
+        <div class="inbound__content">
+            <div class="inbound__content-item inbound__content-pending">
+                <div class="inbound__content-pending-title">PENDING</div>
+                <div ng-class="checkAmount()" class="inbound__content-pending-amount">
+                    {{inboundPending}}
+                    <span class="dashboard--content-amount-notation">
+                        PCS
+                    </span>
+                </div>
+            </div>
+            <div class="inbound__content-item inbound__content-put-away">
+                <div class="inbound__content-put-away-title">PUTAWAY DONE</div>
+                <div class="inbound__content-put-away-amount">
+                    {{inboundDone}}
+                    <span class="dashboard--content-amount-notation">
+                        PCS
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard__content outbound">
+        <div class="inbound__head">
+            Inbound
+        </div>
+        <div class="inbound__content">
+            <div class="inbound__content-item inbound__content-pending">
+                <div class="inbound__content-pending-title">PENDING</div>
+                <div ng-class="checkAmount()" class="inbound__content-pending-amount">
+                    {{inboundPending}}
+                    <span class="dashboard--content-amount-notation">
+                        PCS
+                    </span>
+                </div>
+            </div>
+            <div class="inbound__content-item inbound__content-put-away">
+                <div class="inbound__content-put-away-title">PUTAWAY DONE</div>
+                <div class="inbound__content-put-away-amount">
+                    {{inboundDone}}
+                    <span class="dashboard--content-amount-notation">
+                        PCS
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="table-template warehouse-order" ng-controller="warehouseOrderCtrl">
+    <div class="table-template__head">
+        <div class="table-template__head-title">
+                Warehouse Order
+        </div>
+        <div class="table-template__head-date">
+            {{date | date: 'dd MMMM yyyy hh:mm a'}}
+        </div>
+    </div>
+    <div class="warehouse-order__content">
+        <table class="warehouse-order__content-table table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Warehouse</th>
+                    <th>Created</th>
+                    <th>Pending</th>
+                    <th>Fulfilled</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="d in dataset">
+                    <td>{{d.warehouseId}}</td>
+                    <td>{{d.warehouseName}}</td>
+                    <td>{{d.warehouseCreate}}</td>
+                    <td>{{d.warehousePending}}</td>
+                    <td>{{d.warehouseFulfilled}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
