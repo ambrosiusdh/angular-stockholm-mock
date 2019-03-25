@@ -4,7 +4,7 @@
             Advanced Shipping Notes
         </div>
         <div class="table-template__head-date">
-            {{date | date: 'dd MMMM yyyy hh:mm a'}}
+            {{dateNow | date: 'dd MMMM yyyy hh:mm a'}}
         </div>
     </div>
     <div class="table-template__detail">
@@ -19,8 +19,8 @@
                 <i class="fas fa-calendar-alt"></i>
             </span>
         </div>
-        <div class="table-template__detail-pagination" ng-init="paginationPage = [10,25,50]; pagination = paginationPage[0]">
-            <select ng-model="pagination" ng-options="p for p in paginationPage track by p">
+        <div class="table-template__detail-pagination">
+            <select ng-model="itemsPerPage" ng-options="p for p in paginationPage track by p">
             </select>
         </div>
     </div>
@@ -56,15 +56,12 @@
                     <select
                         class="table-template__content-table-search-input"
                         name="asnInventoryType"
-                        ng-model="asnInventoryType">
+                        ng-model="asnInventoryType" ng-options="i for i in inventoryType track by i">
 
                     </select>
                 </td>
                 <td class="table-template__content-table-search-column">
-                    <select class="table-template__content-table-search-input" name="asnStatus" ng-model="asnStatus">
-                        <option value="all">Semua</option>
-                        <option value="created">Created</option>
-                        <option value="closed">Closed</option>
+                    <select class="table-template__content-table-search-input" name="asnStatus" ng-model="asnStatus" ng-options="s for s in status track by s">
                     </select>
                 </td>
                 <td></td>
@@ -77,12 +74,17 @@
                 <td>{{d.asnType}}</td>
                 <td>{{d.asnStatus}}</td>
                 <td>{{d.asnDock}}</td>
-                <td>Detailsz</td>
+                <td>Detail</td>
             </tr>
             </tbody>
         </table>
     </div>
+    {{totalItems}}
+    <custom-pagination></custom-pagination>
 </div>
+
+
+
 
 <script>
     $('input[name="dates"]').daterangepicker();

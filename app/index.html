@@ -6,15 +6,16 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Stockholm</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="img/favicon.png">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="app.css">
   <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="indexCtrl">
@@ -31,234 +32,234 @@
     <div class="index__side-bar side-bar">
       <ul class="side-bar__menu">
         <li class="side-bar__menu-item side-bar--side-bar-head">STOCKHOLM</li>
-        <li class="side-bar__menu-item panel dashboard-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('dashboard-panel')">
+        <li class="side-bar__menu-item list dashboard-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('dashboard-list')">
             <i class="fas fa-tachometer-alt side-bar__menu-item-icon"></i>
             DASHBOARD
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="/#!/dashboard">Dashboard</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="/#!/dashboard">Dashboard</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="/#!/warehouse-order">Warehouses Order</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="/#!/warehouse-order">Warehouses Order</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Real-item Dashboard</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Real-item Dashboard</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item receiving-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('receiving-panel')">
+        <li class="side-bar__menu-item receiving-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('receiving-list')">
             <i class="fas fa-cubes side-bar__menu-item-icon index--side-bar-icon"></i>
             RECEIVING
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="/#!/asn">ASN</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="/#!/asn">ASN</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Incoming Goods</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Incoming Goods</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Container Activity</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Container Activity</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Loading Dock</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Loading Dock</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Tanda Terima</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Tanda Terima</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">GRN</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">GRN</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Inbound Calendar</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Inbound Calendar</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item labelling-panel">
+        <li class="side-bar__menu-item labelling-list">
           <a href="" class="side-bar__menu-item-link side-bar--hover">
             <i class="fas fa-tag side-bar__menu-item-icon"></i>
             LABELLING
           </a>
         </li>
-        <li class="side-bar__menu-item panel put-away">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('put-away')">
+        <li class="side-bar__menu-item list put-away">
+          <button class="side-bar__menu-item-link" onclick="expandList('put-away')">
             <i class="fas fa-tasks side-bar__menu-item-icon"></i>
             PUTAWAY
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Alokasi Storage</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Alokasi Storage</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Riwayat Putaway</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Riwayat Putaway</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Putaway Manual</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Putaway Manual</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item panel picking-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('picking-panel')">
+        <li class="side-bar__menu-item list picking-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('picking-list')">
             <i class="fas fa-hand-lizard side-bar__menu-item-icon"></i>
             PICKING
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Sales Order</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Sales Order</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Inventory Request</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Inventory Request</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Picker</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Picker</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item panel quality-control-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('quality-control-panel')">
+        <li class="side-bar__menu-item list quality-control-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('quality-control-list')">
             <i class="far fa-check-square side-bar__menu-item-icon"></i>
             QUALITY CONTROL
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Sales Order</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Sales Order</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Inventory Request</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Inventory Request</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Packer</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Packer</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item good-issue-note-panel">
+        <li class="side-bar__menu-item good-issue-note-list">
           <a href="" class="side-bar__menu-item-link side-bar--hover">
             <i class="fas fa-truck side-bar__menu-item-icon"></i>
             GOODS ISSUE NOTE
           </a>
         </li>
-        <li class="side-bar__menu-item igf-panel">
+        <li class="side-bar__menu-item igf-list">
           <a href="" class="side-bar__menu-item-link side-bar--hover">
             <i class="fas fa-tag side-bar__menu-item-icon"></i>
             IGF
           </a>
         </li>
-        <li class="side-bar__menu-item panel stock-control-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('stock-control-panel')">
+        <li class="side-bar__menu-item list stock-control-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('stock-control-list')">
             <i class="fas fa-tachometer-alt side-bar__menu-item-icon"></i>
             STOCK CONTROL
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Problem Stock</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Problem Stock</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Transfer Storage</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Transfer Storage</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Stock Opname</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Stock Opname</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Transfer Warehouse</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Transfer Warehouse</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Counter</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Counter</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">BAC</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">BAC</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item panel data-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('data-panel')">
+        <li class="side-bar__menu-item list data-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('data-list')">
             <i class="fas fa-cube side-bar__menu-item-icon"></i>
             DATA
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Data Viewer</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Data Viewer</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Riwayat Order</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Riwayat Order</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Riwayat Stock</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Riwayat Stock</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Stock</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Stock</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item panel master-data-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('master-data-panel')">
+        <li class="side-bar__menu-item list master-data-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('master-data-list')">
             <i class="fas fa-clipboard side-bar__menu-item-icon"></i>
             MASTER DATA
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">SKU</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">SKU</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Batas Kadaluarsa</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Batas Kadaluarsa</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Location</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Location</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Area</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Area</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Loading Dock</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Loading Dock</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Warehouse</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Warehouse</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Container</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Container</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Box Suggestion</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Box Suggestion</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Attribute</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Attribute</a>
             </li>
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Configuration</a>
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Configuration</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item panel administration-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('administration-panel')">
+        <li class="side-bar__menu-item list administration-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('administration-list')">
             <i class="fas fa-exchange-alt side-bar__menu-item-icon"></i>
             ADMINISTRATION
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Sales And Distribution</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Sales And Distribution</a>
             </li>
           </ul>
         </li>
-        <li class="side-bar__menu-item panel order-mgmt-panel">
-          <button class="side-bar__menu-item-link" onclick="expandPanel('order-mgmt-panel')">
+        <li class="side-bar__menu-item list order-mgmt-list">
+          <button class="side-bar__menu-item-link" onclick="expandList('order-mgmt-list')">
             <i class="far fa-calendar-alt side-bar__menu-item-icon"></i>
             ORDER MGMT
             <i class="fas fa-angle-left side-bar--expand"></i>
           </button>
-          <ul class="panel__menu" style="display: none;">
-            <li class="panel__menu-item side-bar--hover">
-              <a class="panel__menu-item-link" href="">Assign Warehouse</a>
+          <ul class="list__menu" style="display: none;">
+            <li class="list__menu-item side-bar--hover">
+              <a class="list__menu-item-link" href="">Assign Warehouse</a>
             </li>
           </ul>
         </li>
@@ -295,12 +296,15 @@
   -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="lib/angular-animate/angular-animate.js"></script>
+  <script src="lib/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+  <script src="lib/angular-sanitize/angular-sanitize.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
   <script src="view/script.js"></script>

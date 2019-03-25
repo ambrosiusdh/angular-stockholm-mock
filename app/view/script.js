@@ -42,8 +42,37 @@ angular.module('myApp.view', ['ngRoute'])
         $http.get('http://localhost:8080/asn')
             .then(function (response) {
                 $scope.dataset = response.data
+                $scope.totalItems = $scope.dataset.length
             })
-        $scope.date = new Date()
+        $scope.dateNow = new Date()
+        $scope.paginationPage = [5,10,25,50]
+        $scope.pagination = $scope.paginationPage[0]
+        $scope.inventoryType = [
+            'Semua',
+            'Purchase Order',
+            'Consignment Final',
+            'Inventory Request'
+        ]
+        $scope.asnInventoryType = $scope.inventoryType[0];
+        $scope.status = [
+            'Semua',
+            'Created',
+            'Closed'
+        ]
+        $scope.asnStatus = $scope.status[1]
+        $scope.currentPage = 4
+        $scope.itemsPerPage = 5
+        $scope.maxSize = 5
+        $scope.currentPage = 1
+        $scope.pageChanged = function () {
+            alert("test")
+        }
     }])
+    .directive('customPagination', function () {
+        return {
+            template: '    <ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true" ng-change="pageChanged()" items-per-page="itemsPerPage"></ul>',
+            restrict: "EA"
+        }
+    })
 
 
