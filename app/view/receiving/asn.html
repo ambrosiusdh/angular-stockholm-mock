@@ -43,31 +43,56 @@
                     <input
                         class="table-template__content-table-search-input"
                         type="text"
-                        placeholder="Cari ASN">
+                        placeholder="Cari ASN"
+                        name="asnNumber"
+                        ng-model="asnNumber"
+                        ng-keyup="findAllByAsnNumber()"
+                    >
                 </td>
                 <td class="table-template__content-table-search-column">
                     <input
                         class="table-template__content-table-search-input"
                         type="text"
-                        placeholder="Cari Reff no.">
+                        placeholder="Cari Reff no."
+                        name="asnReference"
+                        ng-model="asnReference"
+                        ng-keyup="findAllByAsnReference()"
+                    >
                 </td>
-                <td class="table-template__content-table-search-column"><input class="table-template__content-table-search-input" type="text" placeholder="Cari Supplier"></td>
+                <td class="table-template__content-table-search-column">
+                    <input class="table-template__content-table-search-input"
+                           type="text"
+                           placeholder="Cari Supplier"
+                           name="asnSupplier"
+                           ng-model="asnSupplier"
+                           ng-keyup="findAllByAsnSupplier()"
+                    >
+                </td>
                 <td class="table-template__content-table-search-column">
                     <select
                         class="table-template__content-table-search-input"
-                        name="asnInventoryType"
-                        ng-model="asnInventoryType" ng-options="i for i in inventoryType track by i">
+                        name="asnType"
+                        ng-model="asnType"
+                        ng-options="i for i in inventoryType track by i"
+                        ng-change="findAllByAsnType()"
+                    >
 
                     </select>
                 </td>
                 <td class="table-template__content-table-search-column">
-                    <select class="table-template__content-table-search-input" name="asnStatus" ng-model="asnStatus" ng-options="s for s in status track by s">
+                    <select
+                        class="table-template__content-table-search-input"
+                        name="asnStatus"
+                        ng-model="asnStatus"
+                        ng-options="s for s in status track by s"
+                        ng-change="findAllByAsnStatus()"
+                    >
                     </select>
                 </td>
                 <td></td>
                 <td></td>
             </tr>
-            <tr ng-repeat="d in dataset">
+            <tr ng-repeat="d in dataset.slice((currentPage-1)*itemsPerPage, currentPage*itemsPerPage)">
                 <td>{{d.asnNumber}}</td>
                 <td>{{d.asnReference}}</td>
                 <td>{{d.asnSupplier}}</td>
@@ -75,11 +100,10 @@
                 <td>{{d.asnStatus}}</td>
                 <td>{{d.asnDock}}</td>
                 <td>Detail</td>
-            </tr>
+            </tr>All
             </tbody>
         </table>
     </div>
-    {{totalItems}}
     <custom-pagination></custom-pagination>
 </div>
 

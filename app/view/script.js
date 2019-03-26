@@ -53,24 +53,55 @@ angular.module('myApp.view', ['ngRoute'])
             'Consignment Final',
             'Inventory Request'
         ]
-        $scope.asnInventoryType = $scope.inventoryType[0];
+        $scope.asnType = $scope.inventoryType[0];
         $scope.status = [
             'Semua',
             'Created',
             'Closed'
         ]
         $scope.asnStatus = $scope.status[1]
-        $scope.currentPage = 4
-        $scope.itemsPerPage = 5
-        $scope.maxSize = 5
         $scope.currentPage = 1
-        $scope.pageChanged = function () {
-            alert("test")
+        $scope.itemsPerPage = 5
+        $scope.maxSize = 100
+        $scope.findAllByAsnNumber = function () {
+            $http.get('http://localhost:8080/asn/findAllByAsnNumber/' + $scope.asnNumber)
+                .then(function (response) {
+                    $scope.dataset = response.data
+                    $scope.totalItems = $scope.dataset.length
+                })
+        }
+        $scope.findAllByAsnReference = function () {
+            $http.get('http://localhost:8080/asn/findAllByAsnReference/' + $scope.asnReference)
+                .then(function (response) {
+                    $scope.dataset = response.data
+                    $scope.totalItems = $scope.dataset.length
+                })
+        }
+        $scope.findAllByAsnSupplier= function () {
+            $http.get('http://localhost:8080/asn/findAllByAsnSupplier/' + $scope.asnSupplier)
+                .then(function (response) {
+                    $scope.dataset = response.data
+                    $scope.totalItems = $scope.dataset.length
+                })
+        }
+        $scope.findAllByAsnType= function () {
+            $http.get('http://localhost:8080/asn/findAllByAsnType/' + $scope.asnType)
+                .then(function (response) {
+                    $scope.dataset = response.data
+                    $scope.totalItems = $scope.dataset.length
+                })
+        }
+        $scope.findAllByAsnStatus= function () {
+            $http.get('http://localhost:8080/asn/findAllByAsnStatus/' + $scope.asnStatus)
+                .then(function (response) {
+                    $scope.dataset = response.data
+                    $scope.totalItems = $scope.dataset.length
+                })
         }
     }])
     .directive('customPagination', function () {
         return {
-            template: '    <ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true" ng-change="pageChanged()" items-per-page="itemsPerPage"></ul>',
+            template: '    <ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true" items-per-page="itemsPerPage"></ul>',
             restrict: "EA"
         }
     })
