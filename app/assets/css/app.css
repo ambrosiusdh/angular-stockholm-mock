@@ -8,7 +8,7 @@ html body{
 
 @font-face {
   font-family: Roboto;
-  src: url("font/Roboto-Regular.ttf");
+  src: url("../font/Roboto-Regular.ttf");
 }
 
 ::-webkit-scrollbar {
@@ -131,7 +131,7 @@ html body{
   position: absolute;
   top: 30%;
   right: 10%;
-  transition: 0.2s;
+  /*transition: 0.2s;*/
 }
 
 .side-bar--expand-rotate{
@@ -160,6 +160,12 @@ html body{
 .list__menu-item-link:hover{
   text-decoration: none;
   color: #7ECC8A;
+}
+
+.list__menu-item-link:focus{
+  outline: none;
+  color: #7ECC8A;
+  text-decoration: none;
 }
 
 .side-bar--hover{
@@ -376,3 +382,78 @@ html body{
   padding: 3px;
   font-size: 14px;
 }
+
+.loading-dock{
+  width: 98%;
+  margin: auto;
+}
+
+.loading-dock__head{
+  margin-bottom: 2vh;
+}
+
+.loading-dock__head-input{
+  width: 25%;
+  padding: 3px;
+}
+
+.loading-dock__head-select{
+  width: 15%;
+  padding: 4px 4px 5px;
+}
+
+.loading-dock__content-item{
+  border-left: solid 4px #068ac9;
+}
+
+.loading-dock__content-item-head{
+  padding: 1vh 1%;
+  background-color: #f2f2f2;
+  border: #e6e6e6 solid 1px
+}
+
+.loading-dock__content-item-head::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.loading-dock-detail__asn{
+  float: left;
+  width: 25%;
+}
+
+.loading-dock-detail__asn-code{
+  font-size: 18px;
+}
+
+.loading-dock-detail__asn-date{
+  font-size: 12px;
+  color: grey;
+}
+
+.loading-dock-detail__reference{
+  float: left;
+  color: grey;
+  line-height: 24px;
+}
+
+.loading-dock-detail__sign{
+  float: right;
+  width: 15%;
+  text-align: right;
+}
+
+.loading-dock-detail__sign-button{
+
+}
+
+.loading-dock-detail__sign-dropdown{
+  border: solid 1px grey;
+  display: inline-block;
+  padding: 1%;
+  width: 15%;
+  text-align: center;
+  font-weight: bold;
+}
+

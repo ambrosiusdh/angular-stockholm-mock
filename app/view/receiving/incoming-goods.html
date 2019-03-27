@@ -1,4 +1,4 @@
-<div class="table-template asn" ng-controller="asnCtrl">
+<div class="table-template incoming-goods" ng-controller="incomingGoodsCtrl">
     <div class="table-template__head">
         <div class="table-template__head-title">
             Advanced Shipping Notes
@@ -14,9 +14,7 @@
                     class="table-template__detail-date-input"
                     type="text"
                     name="dates"
-                    ng-model="dates"
-                    id="date-range-picker"
-            />
+                    ng-model="dates" />
             <span class="table-template__detail-date-icon">
                 <i class="fas fa-calendar-alt"></i>
             </span>
@@ -30,10 +28,10 @@
         <table class="table-template__content-table table">
             <thead>
             <tr>
-                <th>ASN No.</th>
-                <th>Reff No.</th>
-                <th>Supplier</th>
-                <th>Inventory Type</th>
+                <th>IG No.</th>
+                <th>Type</th>
+                <th>Order Item ID</th>
+                <th>Nama Produk</th>
                 <th>Status</th>
                 <th>Loading Dock</th>
                 <th></th>
@@ -43,51 +41,52 @@
             <tr class="table-template__content-table-search">
                 <td class="table-template__content-table-search-column">
                     <input
-                        class="table-template__content-table-search-input"
-                        type="text"
-                        placeholder="Cari ASN"
-                        name="asnNumber"
-                        ng-model="asnNumber"
-                        ng-keyup="findAllByAsnNumber()"
+                            class="table-template__content-table-search-input"
+                            type="text"
+                            placeholder="Cari IG No."
+                            name="igNumber"
+                            ng-model="igNumber"
+                            ng-keyup="findAllByIgNumber()"
                     >
                 </td>
                 <td class="table-template__content-table-search-column">
+                    <select
+                            class="table-template__content-table-search-input"
+                            name="igType"
+                            ng-model="igType"
+                            ng-options="i for i in inventoryType track by i"
+                            ng-change="findAllByAsnType()"
+                    >
+
+                    </select>
+                </td>
+                <td class="table-template__content-table-search-column">
                     <input
-                        class="table-template__content-table-search-input"
-                        type="text"
-                        placeholder="Cari Reff no."
-                        name="asnReference"
-                        ng-model="asnReference"
-                        ng-keyup="findAllByAsnReference()"
+                            class="table-template__content-table-search-input"
+                            type="text"
+                            placeholder="Cari Reff no."
+                            name="igItemId"
+                            ng-model="igItemId"
+                            ng-keyup="findAllByIgItemId()"
                     >
                 </td>
                 <td class="table-template__content-table-search-column">
                     <input class="table-template__content-table-search-input"
                            type="text"
                            placeholder="Cari Supplier"
-                           name="asnSupplier"
-                           ng-model="asnSupplier"
-                           ng-keyup="findAllByAsnSupplier()"
+                           name="igProduct"
+                           ng-model="igProduct"
+                           ng-keyup="findAllByIgSupplier()"
                     >
                 </td>
-                <td class="table-template__content-table-search-column">
-                    <select
-                       class="table-template__content-table-search-input"
-                        name="asnType"
-                        ng-model="asnType"
-                        ng-options="i for i in inventoryType track by i"
-                        ng-change="findAllByAsnType()"
-                    >
 
-                    </select>
-                </td>
                 <td class="table-template__content-table-search-column">
                     <select
-                        class="table-template__content-table-search-input"
-                        name="asnStatus"
-                        ng-model="asnStatus"
-                        ng-options="s for s in status track by s"
-                        ng-change="findAllByAsnStatus()"
+                            class="table-template__content-table-search-input"
+                            name="igStatus"
+                            ng-model="igStatus"
+                            ng-options="s for s in status track by s"
+                            ng-change="findAllByIgStatus()"
                     >
                     </select>
                 </td>
@@ -106,5 +105,9 @@
             </tbody>
         </table>
     </div>
-    <table-pagination></table-pagination>
+    <custom-pagination></custom-pagination>
 </div>
+
+
+
+

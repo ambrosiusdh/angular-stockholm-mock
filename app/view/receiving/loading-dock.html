@@ -1,0 +1,77 @@
+<div class="loading-dock">
+    <h2 class="loading-dock__title">
+       Loading Dock
+    </h2>
+    <div class="loading-dock__head">
+        Tampilkan:
+        <select
+                class="loading-dock__head-select"
+                name="loadingDockName"
+                ng-model="loadingDockName"
+                ng-change="refreshLoadingDockData()"
+                ng-options="ld for ld in loadingDockNames track by ld"
+        >
+
+        </select>
+
+        <input
+                class="loading-dock__head-input"
+                type="text"
+                placeholder="Cari No. ASN/PO/CFF/IG atau Nama Supplier"
+                ng-model="loadingDockSearch"
+                name="loadingDockSearch"
+                ng-keyup="refreshLoadingDockData()"
+        >
+    </div>
+    <div class="loading-dock__content">
+        <div class="loading-dock__content-item">
+            <div class="loading-dock__content-item-head loading-dock-detail">
+                <div class="loading-dock-detail__asn">
+                    <div class="loading-dock-detail__asn-number">
+                        No. ASN
+                    </div>
+                    <div class="loading-dock-detail__asn-code">
+                        ASN/CFF/I-2019/0039
+                    </div>
+                    <div class="loading-dock-detail__asn-date">
+                        2017-06-15 00:03
+                    </div>
+                </div>
+                <div class="loading-dock-detail__reference">
+                    <div class="loading-dock-detail__reference-number">
+                        Reff. No. :
+                        MCT/CF1/1901/20456
+                    </div>
+                    <div class="loading-dock-detail__reference-supplier">
+                        Supplier :
+                        Toko Seoul TC
+                    </div>
+                </div>
+                <div class="loading-dock-detail__sign">
+                    <button class="loading-dock-detail__sign-button">Buat Tanda Terima</button>
+                    <span class="loading-dock-detail__sign-dropdown">...</span>
+                </div>
+            </div>
+            <div class="loading-dock__content-item-body">
+                <div class="loading-dock__content-item-body-sign">
+                    <div>
+                        Tanda Terima
+                    </div>
+                    <div>
+                        1. GRN/I-2019/0039
+                    </div>
+                </div>
+                <div class="loading-dock__content-item-body-bar">
+                    1 dari 1 Quantity
+                </div>
+                <div class="loading-dock__content-item-body-submit">
+                    <button
+                        class="loading-dock__content-item-body-submit-button
+                        btn btn-success">
+                            Buat GRN
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
