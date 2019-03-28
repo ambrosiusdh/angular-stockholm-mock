@@ -457,3 +457,105 @@ html body{
   font-weight: bold;
 }
 
+.login{
+  background-image: url('../img/login-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 101.8vh;
+  position: relative;
+  margin-top: -1.8vh;
+}
+
+.login__form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 30%;
+  background-color: white;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.login__form-head{
+  text-align: center;
+  margin: 0 0 30px;
+  padding: 30px 0;
+  background-color: #EEEEEE;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 36px;
+}
+
+.login__form-body{
+  padding: 20px;
+}
+
+.login__form-body-submit{
+  text-align: center;
+}
+
+.warehouse{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../img/warehouse-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.warehouse__overlay{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 36, 150, 0.5);
+}
+
+.warehouse__navbar{
+  background-color: white;
+  width: 100%;
+  padding: 0.5% 1%;
+}
+
+.warehouse__navbar::after{
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.warehouse__navbar-logo{
+  float: left;
+}
+
+.warehouse__navbar-logout{
+  float: right;
+  padding: 10px;
+}
+
+.warehouse__navbar-logout-link{
+  color: black;
+}
+
+.warehouse__content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  text-align: center;
+}
+
+.warehouse__content-head{
+  color: white;
+  font-size: 36px;
+  margin-bottom: 4vh;
+}
+
+.warehouse__content-body{
+  width: 60%;
+  margin: auto;
+}
+
+.warehouse__content-body-select{
+  padding: 5px;
+}

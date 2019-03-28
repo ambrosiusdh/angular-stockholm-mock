@@ -1,0 +1,26 @@
+<div class="warehouse" ng-controller="warehouseCtrl">
+    <div class="warehouse__overlay">
+        <nav class="warehouse__navbar">
+            <div class="warehouse__navbar-logo">
+                <img src="../../assets/img/warehouse-nav.png" alt="">
+            </div>
+            <div class="warehouse__navbar-logout">
+                <a class="warehouse__navbar-logout-link" href="/#!/logout">Logout</a>
+            </div>
+        </nav>
+        <div class="warehouse__content">
+            <div class="warehouse__content-head">
+                Selamat Datang Admin!
+            </div>
+            <div class="warehouse__content-body">
+                <select
+                        class="warehouse__content-body-select"
+                        name="warehouseSelect"
+                        ng-model="warehouseSelect"
+                        ng-options="w for w in warehouseList track by w">
+
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

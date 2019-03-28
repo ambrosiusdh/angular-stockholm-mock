@@ -6,7 +6,8 @@ angular.module('myApp', [
     'ngAnimate',
     'ui.bootstrap',
     'directiveApp',
-    'oc.lazyLoad'
+    'oc.lazyLoad',
+    'ui.router'
 ])
     .config([
         '$locationProvider',
@@ -63,31 +64,48 @@ angular.module('myApp', [
                 }
             });
 
-            $routeProvider.otherwise({redirectTo: '/dashboard'});
+            $ocLazyLoadProvider.config({
+                modules: {
+                    name: 'loginLoad',
+                    files: [
+                        'assets/js/user/login.js'
+                    ]
+                }
+            });
+
+            $ocLazyLoadProvider.config({
+                modules: {
+                    name: 'warehouseLoad',
+                    files: [
+                        'assets/js/warehouse/warehouse.js'
+                    ]
+                }
+            });
+
             $routeProvider.when('/dashboard', {
-                templateUrl: 'view/dashboard/dashboard.html',
-                controller: 'dashboardCtrl',
-                resolve: {
-                    loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('dashboardLoad')
-                    }]
-                }
-            });
+                    templateUrl: 'view/dashboard/dashboard.html',
+                    controller: 'dashboardCtrl',
+                    resolve: {
+                        loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('dashboardLoad');
+                        }]
+                    }
+                });
             $routeProvider.when('/warehouse-order', {
-                templateUrl: 'view/dashboard/warehouse-order.html',
-                controller: 'warehouseOrderCtrl',
-                resolve: {
-                    loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('warehouseOrderLoad')
-                    }]
-                }
-            });
+                    templateUrl: 'view/dashboard/warehouse-order.html',
+                    controller: 'warehouseOrderCtrl',
+                    resolve: {
+                        loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('warehouseOrderLoad');
+                        }]
+                    }
+                })
             $routeProvider.when('/asn',{
                 templateUrl: 'view/receiving/asn.html',
                 controller: 'asnCtrl',
                 resolve: {
                     loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('asnLoad')
+                        return $ocLazyLoad.load('asnLoad');
                     }]
                 }
             });
@@ -96,7 +114,7 @@ angular.module('myApp', [
                 controller: 'incomingGoodsCtrl',
                 resolve: {
                     loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('incomingGoodsLoad')
+                        return $ocLazyLoad.load('incomingGoodsLoad');
                     }]
                 }
             });
@@ -105,12 +123,39 @@ angular.module('myApp', [
                 controller: 'loadingDockCtrl',
                 resolve: {
                     loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load('loadingDockLoad')
+                        return $ocLazyLoad.load('loadingDockLoad');
                     }]
                 }
             });
+            $routeProvider.when('/login',{
+                controller: 'loginCtrl',
+                templateUrl: 'view/user/login.html',
+                resolve: {
+                    loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('loginLoad');
+                    }]
+                }
+            });
+
+            $routeProvider.when('/warehouse', {
+                controller: 'warehouseCtrl',
+                templateUrl: 'view/warehouse/warehouse.html',
+                resolve:{
+                    loadDependencies: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load('warehouseLoad')
+                    }]
+                }
+            });
+
+            $routeProvider.otherwise({redirectTo: '/dashboard'});
         }
     ])
+
+    .controller('indexCtrl', ['$scope', '$location', function ($scope, $location) {
+        $scope.checkPage = function () {
+            return $location.path() !== '/login' && $location.path() !== '/warehouse';
+        }
+    }]);
 
 //JQuery
 var currExpandClass;
