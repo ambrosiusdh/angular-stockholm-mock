@@ -449,12 +449,49 @@ html body{
 }
 
 .loading-dock-detail__sign-dropdown{
-  border: solid 1px grey;
   display: inline-block;
-  padding: 1%;
-  width: 15%;
+  padding: 3%;
+  width: 20%;
   text-align: center;
   font-weight: bold;
+}
+
+.loading-dock__content-item-body::after{
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.loading-dock__content-item-body-sign{
+  float: left;
+  padding: 2% 4%;
+}
+
+.loading-dock__content-item-body-sign-head{
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.loading-dock__content-item-body-bar{
+  float: left;
+  width: 70%;
+  position: relative;
+  padding-top: 6vh;
+}
+
+.loading-dock__content-item-body-bar-graph{
+  width: 90%;
+  margin: auto;
+}
+
+.loading-dock__content-item-body-bar-graph .progress-bar{
+  color: #000;
+}
+
+.loading-dock__content-item-body-submit{
+  float: left;
+  padding-top: 5vh;
 }
 
 .login{
