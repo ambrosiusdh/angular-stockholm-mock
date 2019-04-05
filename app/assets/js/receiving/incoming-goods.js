@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-angular.module('controller.receiving.IncomingGoodsController', [])
+angular.module('controller.receiving.IncomingGoodsController', ['AuthenticationController'])
 
-    .controller('incomingGoodsCtrl', ['$scope', function ($scope) {
+    .controller('incomingGoodsCtrl', ['$scope', 'authenticationFactory', function ($scope) {
         $scope.data = 'asd';
 
     }]);

@@ -4,11 +4,31 @@
             <i ng-click="toggleSideBar()" class="fas fa-bars content__item-head-icon"></i>
         </div>
         <div class="content__item-head-warehouse">
-            Testing Warehouse
+            {{warehouseSelect}}
         </div>
         <div class="content__item-head-user">
-            admin
-            <i class="fas fa-caret-down"></i>
+            <div class="dropdown content__item-head-user-menu user-menu">
+                <div class="dropdown-toggle" data-toggle="dropdown">
+                    <span ng-if="checkUserRole('admin')">Hello, Admin </span>
+                    <span ng-if="checkUserRole('member')">Welcome, </span>
+                    {{userName}}
+                    <span class="caret"></span></div>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="user-menu__change-warehouse"
+                              data-toggle="modal"
+                              data-target="#basicModal">
+                            Ganti Warehouse
+                        </a>
+                    </li>
+                    <li>
+                        <a class="user-menu__logout"
+                              ng-click="logout()">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="content__item directory">

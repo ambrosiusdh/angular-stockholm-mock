@@ -1,24 +1,31 @@
-<div class="warehouse" ng-controller="warehouseCtrl">
+<div class="warehouse">
     <div class="warehouse__overlay">
         <nav class="warehouse__navbar">
             <div class="warehouse__navbar-logo">
                 <img src="../../assets/img/warehouse-nav.png" alt="">
             </div>
             <div class="warehouse__navbar-logout">
-                <a class="warehouse__navbar-logout-link" href="/#!/logout">Logout</a>
+                <span
+                        class="warehouse__navbar-logout-link"
+                        ng-click="logout()"
+                >
+                    Logout
+                </span>
             </div>
         </nav>
         <div class="warehouse__content">
             <div class="warehouse__content-head">
-                Selamat Datang Admin!
+                Selamat Datang {{userName}}
             </div>
             <div class="warehouse__content-body">
                 <select
                         class="warehouse__content-body-select"
                         name="warehouseSelect"
                         ng-model="warehouseSelect"
-                        ng-options="w for w in warehouseList track by w">
-
+                        ng-options="w for w in warehouseList track by w"
+                        ng-change="initializeWarehouse()"
+                >
+                    <option value="">--Pilih Warehouse--</option>
                 </select>
             </div>
         </div>

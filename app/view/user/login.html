@@ -8,8 +8,9 @@
                 <label for="login__form-email">Email</label>
                 <input
                         id="login__form-email"
-                        type="text"
-                        name="username"
+                        type="email"
+                        name="userEmail"
+                        ng-model="userEmail"
                         class="form-control"
                 >
             </div>
@@ -18,12 +19,30 @@
                 <input
                         id="login__form-password"
                         type="password"
-                        name="password"
+                        name="userPassword"
+                        ng-model="userPassword"
                         class="form-control"
                 >
             </div>
+            <div class="login__form-body-remember-me">
+                <input
+                        type="checkbox"
+                        name="rememberMe"
+                        ng-model="rememberMe"
+                        ng-change="setRememberMe()"
+                >
+                Remember Me
+            </div>
             <div class="login__form-body-submit form-group">
-                <input type="submit" class="btn btn-primary">
+                <button
+                        type="submit"
+                        ng-click="validateLogin()"
+                        class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+            <div class="login__form-body-alert" ng-if="loginAlert">
+                Incorrect Email or Password
             </div>
         </form>
     </div>

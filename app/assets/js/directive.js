@@ -16,6 +16,20 @@ angular.module('directiveApp', [])
         }
     })
 
+    .directive('indexSideBarMember', function () {
+        return {
+            templateUrl: 'view/components/index/index-side-bar-member.html',
+            restrict: 'EA'
+        }
+    })
+
+    .directive('indexSideBarAdmin', function () {
+        return {
+            templateUrl: 'view/components/index/index-side-bar-admin.html',
+            restrict: 'EA'
+        }
+    })
+
     .directive('indexContentHead', function () {
         return{
             templateUrl: 'view/components/index/index-content-head.html',
@@ -26,6 +40,13 @@ angular.module('directiveApp', [])
     .directive('indexContent', function () {
         return{
             templateUrl: 'view/components/index/index-content.html',
+            restrict: 'EA'
+        }
+    })
+
+    .directive('modalWarehouse', function () {
+        return{
+            templateUrl: 'view/components/index/modal-warehouse.html',
             restrict: 'EA'
         }
     });

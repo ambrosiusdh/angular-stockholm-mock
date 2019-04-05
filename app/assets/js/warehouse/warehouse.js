@@ -1,7 +1,17 @@
 'use strict';
 
-angular.module('warehouseController', [])
+angular.module('WarehouseController', ['LocalStorageModule', 'AuthenticationController'])
 
-	.controller('warehouseCtrl', ['$scope', function ($scope) {
-		$scope.warehouseList = ["Gudang Jakarta", "Gudang Medan"];
-	}]);
+	.controller('warehouseCtrl',
+		[	'$scope',
+			'$location',
+			'localStorageService',
+			'authenticationFactory',
+			function ($scope, $location, localStorageService, authenticationFactory) {
+				authenticationFactory.authenticateLogin();
+				$scope.userName = localStorageService.get('name');
+
+				$scope.logout = function () {
+					authenticationFactory.logout();
+				}
+			}]);
