@@ -23,7 +23,7 @@ angular.module('LoginController', ['ngCookies', 'LocalStorageModule'])
 					}
 
 				}catch (e) {
-					console.log(e)
+					console.log(e);
 				}
 
 			};
